@@ -1,0 +1,25 @@
+syntax = "proto3";
+package programs ;
+option go_package = "./proto_pb";
+
+
+message EmployeeAddRequest{
+string name = 1;
+optional int32 address =2;
+optional int32 age =3;
+enum Department{
+    SALES=0;
+    MARKETING=1;
+    ADMIN=2;
+    STAFF=3;
+}
+//optional Department dept =4;
+//repeated string emails =5;
+}
+message EmployeeAddResoponse{
+    string name =1;
+    int32 id =2;
+}
+service EmploymentService{
+    rpc AddEmployee(EmployeeAddRequest) returns (EmployeeAddResoponse);
+}
